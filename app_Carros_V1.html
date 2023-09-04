@@ -219,10 +219,10 @@
 		  <!-- <input type="radio" id="ser04" value="RECO" name="servicio"><label for="ser04" class="light">RECOLECCIÓN</label><br> -->
 		  <!-- <input type="radio" id="ser05" value="DESP" name="servicio"><label for="ser05" class="light">DESPACHO</label><br><br> -->
 		  <label for="servicio">TIPO DE SERVICIO<input type="text" id="servicio" name="servicio" list="lista-servicios"></label> 
-		  <datalist id="lista-servicios"><option value="PRIMER SERVICIO"><option value="INTERCAMBIO"><option value="RECOLECCIÓN"><option value="RECURRENTE"><option value="TRANSFERENCIA"></datalist>
+		  <datalist id="lista-servicios"><option value="PRIMERA VEZ"><option value="INTERCAMBIO"><option value="RECOLECCIÓN"><option value="RECURRENTE"><option value="TRANSFERENCIA"></datalist>
           <!-- <label for="remision">REMISIÓN<input type="number" id="remision" name="remision"></label>         -->
 		  <label for="registro">REGISTRO<input type="text" id="registro" name="registro"></label>
-          <label for="pedido">PEDIDO<input type="number" id="pedido" name="pedido"></label>
+          <label for="pedido">PEDIDO<input type="text" id="pedido" name="pedido"></label>
           <label>FECHA/HORA SOLICITUD:<input type="text" id="fecha_sol" name="fecha_sol" placeholder="DD/MM/AAAA HH:MM"></label>          
 		  <label>FECHA/HORA ENTREGA:<input type="text" id="fecha_ent" name="fecha_ent" placeholder="DD/MM/AAAA HH:MM"></label>          
 		  <label>TIPO CLIENTE:<input type="text" id="tipo_cliente" name="tipo_cliente" list="lista-clientes"></label>
@@ -779,7 +779,7 @@
 			//const url = 'https://api.example.com/data';			
 			alert("Viaje Perdido Registrado, OK");
 			var ser = document.getElementById('servicio').value;
-			var t_serv = ser === "PRIMER SERVICIO" ? "PRIM" : ser === "INTERCAMBIO" ? "INTE" : ser === "RECOLECCIÓN" ? "RECO" : ser === "RECURRENTE" ?"RECU" : "TRAN";
+			var t_serv = ser === "PRIMERA VEZ" ? "PRIM" : ser === "INTERCAMBIO" ? "INTE" : ser === "RECOLECCIÓN" ? "RECO" : ser === "RECURRENTE" ?"RECU" : "TRAN";
 			const contenidoStringBG = '';
 			const contenidoStringBM = '';
 			document.title = 'VIAJE_PERDIDO RS'+document.getElementById('pedido').value+'_'+document.getElementById('documento').value+'_'+t_serv+'_'+document.getElementById('nombre').value+'_'+fechaActual+'.pdf';
@@ -881,7 +881,7 @@
 			//const url = 'https://api.example.com/data';			
 			alert("Envio remision, OK");
 			var ser = document.getElementById('servicio').value;
-			var t_serv = ser === "PRIMER SERVICIO" ? "PRIM" : ser === "INTERCAMBIO" ? "INTE" : ser === "RECOLECCIÓN" ? "RECO" : ser === "RECURRENTE" ?"RECU" : "TRAN";
+			var t_serv = ser === "PRIMERA VEZ" ? "PRIM" : ser === "INTERCAMBIO" ? "INTE" : ser === "RECOLECCIÓN" ? "RECO" : ser === "RECURRENTE" ?"RECU" : "TRAN";
 			const contenidoStringBG = '';
 			const contenidoStringBM = '';
 			document.title = 'RS'+document.getElementById('pedido').value+'_'+document.getElementById('documento').value+'_'+t_serv+'_'+document.getElementById('nombre').value+'_'+fechaActual+'.pdf';
@@ -921,7 +921,7 @@
 			
 					
 			//var tipo_servicio = ['&#9745;','&#9744;','&#9744;','&#9744;'] ;
-			var tipo_servicio = ser === "PRIMER SERVICIO" ? ['&#9746;','&#9744;','&#9744;','&#9744;'] : ser === "INTERCAMBIO" ? ['&#9744;','&#9746;','&#9744;','&#9744;'] : ser === "RECOLECCIÓN" ? ['&#9744;','&#9744;','&#9746;','&#9744;'] : ser === "RECURRENTE" ?['&#9744;','&#9744;','&#9744;','&#9746;'] : ['&#9744;','&#9744;','&#9744;','&#9744;'];
+			var tipo_servicio = ser === "PRIMERA VEZ" ? ['&#9746;','&#9744;','&#9744;','&#9744;'] : ser === "INTERCAMBIO" ? ['&#9744;','&#9746;','&#9744;','&#9744;'] : ser === "RECOLECCIÓN" ? ['&#9744;','&#9744;','&#9746;','&#9744;'] : ser === "RECURRENTE" ?['&#9744;','&#9744;','&#9744;','&#9746;'] : ['&#9744;','&#9744;','&#9744;','&#9744;'];
 			var sedes = sede_json === "LA ESTRELLA"? ['&#9746;','&#9744;']:['&#9744;','&#9746;'];
 			//var detServicio = [['&#9746;','','CONCENTRADOR','BXR 1919','12123','4'],['&#9746;','','CONCENTRADOR','BXR 1919','12123','4'],['&#9746;','','CONCENTRADOR','BXR 1919','12123','4'],['&#9746;','','CONCENTRADOR','BXR 1919','12123','4'],['&#9746;','','CONCENTRADOR','BXR 1919','12123','4'],['&#9746;','','CONCENTRADOR','BXR 1919','12123','4'],['&#9746;','','CONCENTRADOR','BXR 1919','12123','4'],['&#9746;','','CONCENTRADOR','BXR 1919','12123','4'],['&#9746;','','CONCENTRADOR','BXR 1919','12123','4'],['&#9746;','','CONCENTRADOR','BXR 1919','12123','4'],['&#9746;','','CONCENTRADOR','BXR 1919','12123','4'],['&#9746;','','CONCENTRADOR','BXR 1919','12123','4'],['&#9746;','','CONCENTRADOR','BXR 1919','12123','4'],['&#9746;','','CONCENTRADOR','BXR 1919','12123','4'],['&#9746;','','CONCENTRADOR','BXR 1919','12123','4'],['&#9746;','','CONCENTRADOR','BXR 1919','12123','4'],['&#9746;','','CONCENTRADOR','BXR 1919','12123','4'],['&#9746;','','CONCENTRADOR','BXR 1919','12123','4'],['&#9746;','','CONCENTRADOR','BXR 1919','12123','4'],['&#9746;','','CONCENTRADOR','BXR 1919','12123','4']];
 			//var detConsumibles = ['1','2','3','Dispositivo'];
@@ -1003,18 +1003,7 @@
 			const contenido = JSON.stringify(objetoJson);		  
 			const destinatario="bioxigenservicio@gmail.com";
 			//const cuerpo = 'servicio: '+servicio_json+'\r\nregistro: '+registro_json+'\r\npedido: '+pedido_json+'\r\nfecha_sol: '+fecha_sol_json+'\r\nfecha_ent: '+fecha_ent_json+'\r\ntipo_cliente: '+tipo_cliente_json+'\r\nsede: '+sede_json+'\r\nnombre: '+documento_json+'\r\nentidad: '+entidad_json+'\r\ntelefono: '+telefono_json+'\r\ndireccion: '+direccion_json+'\r\nmunicipio: '+municipio_json+'\r\ntipo_remision: '+tipo_remision_json+'\r\nempresa: '+empresa_json+'\r\ndetalleServicio: '+detalleServicio_json+'\r\nobservaciones: '+observaciones_json+'\r\nefectivo: '+detalleConsumibles_json+'\r\nviajePerdido: '+viajePerdido_json+'\r\nnombre_entrega: '+nombre_entrega_json+'\r\ncc_entrega: '+cc_entrega_json+'\r\nnombre_recibe: '+nombre_recibe_json+'\r\ncc_recibe: '+cc_recibe_json+'\r\nprograma: '+programa_json+'\r\nagente: '+agente_json+'\r\ngps: '+gps_json;			
-			const cuerpo = 'servicio: '+servicio_json+'\r\nregistro: '+registro_json+'\r\npedido: '+pedido_json+'\r\nfecha_sol: '+fecha_sol_json+'\r\nfecha_ent: '+fecha_ent_json+'\r\ntipo_cliente: '+tipo_cliente_json+'\r\nsede: '+sede_json+'\r\nnombre: '+documento_json+'\r\nentidad: '+entidad_json+'\r\ntelefono: '+telefono_json+'\r\ndireccion: '+direccion_json+'\r\nbarrio: '+barrio_json+'\r\nmunicipio: '+municipio_json+'\r\ntipo_remision: '+tipo_remision_json+'\r\nempresa: '+empresa_json+'\r\ndetalleServicio: '+detalleServicio_json+'\r\nobservaciones: '+observaciones_json+'\r\nefectivo: '+efectivo_json+'\r\ndetalleConsumibles: '+detalleConsumibles_json+'\r\nviajePerdido: '+viajePerdido_json+'\r\nnombre_entrega: '+nombre_entrega_json+'\r\ncc_entrega: '+cc_entrega_json+'\r\nnombre_recibe: '+nombre_recibe_json+'\r\ncc_recibe: '+cc_recibe_json+'\r\nprograma: '+programa_json+'\r\nagente: '+agente_json+'\r\ngps: '+gps_json;
-
-			const asunto="RS"+document.getElementById('pedido').value+'_'+document.getElementById('documento').value+'_'+t_serv+'_'+document.getElementById('nombre').value+'_'+fechaActual+'.pdf';
-			var archivo = new Blob([contenido], { type: 'application/json' });
-			var url = URL.createObjectURL(archivo);
-			var enlace = document.createElement('a');
-			enlace.href = url;
-			//enlace.download = document.getElementById('remision').value+'.json';
-			enlace.download = 'RS'+document.getElementById('pedido').value+'_'+document.getElementById('documento').value+'_'+t_serv+'_'+document.getElementById('nombre').value+'_'+fechaActual+'.json';
-			enlace.click();
-			const correo = `mailto:${destinatario}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`;			
-			window.open(correo);
+			const cuerpo = 'servicio: '+servicio_json+'\r\nregistro: '+registro_json+'\r\npedido: '+pedido_json+'\r\nfecha_sol: '+fecha_sol_json+'\r\nfecha_ent: '+fecha_ent_json+'\r\ntipo_cliente: '+tipo_cliente_json+'\r\nsede: '+sede_json+'\r\nnombre: '+documento_json+'\r\nentidad: '+entidad_json+'\r\ntelefono: '+telefono_json+'\r\ndireccion: '+direccion_json+'\r\nbarrio: '+barrio_json+'\r\nmunicipio: '+municipio_json+'\r\ntipo_remision: '+tipo_remision_json+'\r\nempresa: '+empresa_json+'\r\ndetalleServicio: '+detalleServicio_json+'\r\nobservaciones: '+observaciones_json+'\r\nefectivo: '+efectivo_json+'\r\ndetalleConsumibles: '+detalleConsumibles_json+'\r\nviajePerdido: '+viajePerdido_json+'\r\nnombre_entrega: '+nombre_entrega_json+'\r\ncc_entrega: '+cc_entrega_json+'\r\nnombre_recibe: '+nombre_recibe_json+'\r\ncc_recibe: '+cc_recibe_json+'\r\nprograma: '+programa_json+'\r\nagente: '+agente_json+'\r\ngps: '+gps_json;			
 			
 			var enlace = 'https://docs.google.com/forms/d/1N7TuN52ndOxUN_FjP5-mT1thiM5tETuUEOfb9M5tz0U/formResponse?entry.1589500006='+document.getElementById('servicio').value+'&entry.1085455186='+document.getElementById('registro').value+'&entry.69310568='+document.getElementById('pedido').value+'&entry.887692049='+document.getElementById('fecha_sol').value+'&entry.1047398527='+document.getElementById('fecha_ent').value+'&entry.1792196563='+document.getElementById('tipo_cliente').value+'&entry.1392038691='+document.getElementById('sede').value+'&entry.1288623008='+document.getElementById('nombre').value+'&entry.668705905='+document.getElementById('documento').value+'&entry.958321906='+document.getElementById('entidad').value+'&entry.1259438917='+document.getElementById('telefono').value+'&entry.1737036163='+document.getElementById('direccion').value+'&entry.148015017='+document.getElementById('barrio').value+'&entry.325895908='+document.getElementById('municipio').value+'&entry.1241644186='+document.getElementById('tipo_remision').value+'&entry.151803107='+document.getElementById('empresa').value+'&entry.1284687453='+detalleServicio_json+'&entry.2060496214='+document.getElementById('observaciones').value+'&entry.2123674024='+document.getElementById('efectivo').value+'&entry.1261341372='+detalleConsumibles_json+'&entry.938657998='+document.getElementById('viajePerdido').value+'&entry.1031897735='+document.getElementById('nombre_entrega').value+'&entry.9816530='+document.getElementById('cc_entrega').value+'&entry.1587660832='+document.getElementById('nombre_recibe').value+'&entry.2138962183='+document.getElementById('cc_recibe').value+'&entry.1689294285='+document.getElementById('programa').value+'&entry.306049323='+document.getElementById('agente').value+'&entry.1506124398='+document.getElementById('gps').value;
 			var caracterABuscar = /#/g;
@@ -1029,7 +1018,19 @@
 			ventanaEmergente.document.write(contenidoString);
 			ventanaEmergente.document.title = 'RS'+document.getElementById('pedido').value+'_'+document.getElementById('documento').value+'_'+t_serv+'_'+document.getElementById('nombre').value+'_'+fechaActual+'.pdf';
 			ventanaEmergente.document.close();
-			ventanaEmergente.print();			
+			ventanaEmergente.print();		
+			
+			
+			const asunto="RS"+document.getElementById('pedido').value+'_'+document.getElementById('documento').value+'_'+t_serv+'_'+document.getElementById('nombre').value+'_'+fechaActual;
+			var archivo = new Blob([contenido], { type: 'application/json' });			
+			var url = URL.createObjectURL(archivo);
+			var enlace = document.createElement('a');
+			enlace.href = url;
+			//enlace.download = document.getElementById('remision').value+'.json';
+			enlace.download = 'RS'+document.getElementById('pedido').value+'_'+document.getElementById('documento').value+'_'+t_serv+'_'+document.getElementById('nombre').value+'_'+fechaActual+'.json';
+			enlace.click();
+			const correo = `mailto:${destinatario}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`;			
+			window.open(correo);
 		}	
 
 

@@ -282,7 +282,8 @@
 		<input style="1px; " type="hidden" id="detalleServicio" size="1">		
 		<input style="1px; " type="hidden" id="codigo" size="1">		
 		<div class="button-container">
-		<button id="enviarBtn" onclick="enviarVariables()">1. Confirmar</button>			
+		<button id="enviarBtn" onclick="enviarVariables()">1. Enviar</button>			
+		<button id="confirmarBtn" onclick="confirmarVariables()">2. Confirmar</button>			
 		</div>
         </section>
 	  
@@ -605,10 +606,95 @@
 			enlace.click();
 			const correo = `mailto:${destinatario}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`;			
 			window.open(correo);								
-		}	
-
-
+		}			
 	}	
+	function confirmarVariables(){
+		var retVal = confirm("¿Confirmar envio?");
+		if( retVal == true ){					
+			const fechaActual = obtenerFechaYHoraActual();			
+			//const url = 'https://api.example.com/data';			
+			alert("ENVIO, OK");
+			var ser = document.getElementById('servicio').value;
+			var codigo = ser === "CARGUE" ? "FR-LO-011" : "FR-LO-012";
+			const contenidoStringBG = '';
+			const contenidoStringBM = '';
+			document.title = ser+'_'+document.getElementById('registro').value+'_'+document.getElementById('nombre').value+'_'+fechaActual;			
+			var servicio_json = document.getElementById('servicio').value;
+			var registro_json = document.getElementById('registro').value;			
+			var fecha_sol_json = document.getElementById('fecha_sol').value;
+			var fecha_ent_json = document.getElementById('fecha_ent').value;			
+			var sede_json = document.getElementById('sede').value;
+			var nombre_json = document.getElementById('nombre').value;
+			var documento_json = document.getElementById('documento').value;			
+			var direccion_json = document.getElementById('direccion').value;						
+			var tipo_remision_json = document.getElementById('tipo_remision').value;			
+			var detalleServicio_json = document.getElementById('detalleServicio').value;
+			var observaciones_json = document.getElementById('observaciones').value;
+			
+			const entInputsConId = document.querySelectorAll('[id^="ent_"]');			
+			const entArrayFromNodeList = [];			
+			entInputsConId.forEach(node => entArrayFromNodeList.push(node.value));						
+			const entArrayTransformado = entArrayFromNodeList.map(dividirYCrearSubarrays);
+			
+			var entArrayResultado = [].concat.apply([], entArrayTransformado);			
+			var entArrayResultado = [].concat.apply([], entArrayResultado);			
+			
+			const elementosPorSubarray = 7;
+			if (entArrayResultado.length == 4){
+				var entrega_datos = [];
+				var entSubarrays = [];
+			}else{
+				var entrega_datos = agruparEnSubarrays(entArrayResultado, elementosPorSubarray,[]);				
+				var entSubarrays = agruparEnSubarrays(entArrayResultado, elementosPorSubarray,['','','','']);
+			}			
+			detalleServicio_json = {'EQUIPOS':entrega_datos};			
+			var detServicio = [...entSubarrays];
+			for (var i = 0; i < detServicio.length; i++) {
+				if(detServicio[i][4] =='CC') detServicio[i][7]=detServicio[i][10];
+				if(detServicio[i][4] =='CC') detServicio[i][0]='&#9746;';
+				if(detServicio[i][4] =='T') detServicio[i][1]='&#9746;';
+				if(detServicio[i][4] =='D') detServicio[i][2]='&#9746;';
+				if(detServicio[i][4] =='R') detServicio[i][3]='&#9746;';				
+			}
+			while(detServicio.length<50){
+				detServicio.push(['','','','','','','','','','','']);
+			}
+			//detalleServicio_json = detServicio;			
+			detalleServicio_json = JSON.stringify(detalleServicio_json);			
+			var objetoJson = {
+			tipo:servicio_json,
+			placa:registro_json,			
+			fecha_sol:fecha_sol_json,
+			fecha_ent:fecha_ent_json,			
+			sede:sede_json,
+			conductor:nombre_json,
+			auxiliar:documento_json,			
+			ruta:direccion_json,			
+			revisa_por:tipo_remision_json,			
+			detalleEquipos:detalleServicio_json,
+			observaciones:observaciones_json,			
+			};
+			
+			const contenido = JSON.stringify(objetoJson);		  
+			const destinatario="bioxigenservicio@gmail.com";
+			//const cuerpo = 'servicio: '+servicio_json+'\r\nregistro: '+registro_json+'\r\npedido: '+pedido_json+'\r\nfecha_sol: '+fecha_sol_json+'\r\nfecha_ent: '+fecha_ent_json+'\r\ntipo_cliente: '+tipo_cliente_json+'\r\nsede: '+sede_json+'\r\nnombre: '+documento_json+'\r\nentidad: '+entidad_json+'\r\ntelefono: '+telefono_json+'\r\ndireccion: '+direccion_json+'\r\nmunicipio: '+municipio_json+'\r\ntipo_remision: '+tipo_remision_json+'\r\nempresa: '+empresa_json+'\r\ndetalleServicio: '+detalleServicio_json+'\r\nobservaciones: '+observaciones_json+'\r\nefectivo: '+detalleConsumibles_json+'\r\nviajePerdido: '+viajePerdido_json+'\r\nnombre_entrega: '+nombre_entrega_json+'\r\ncc_entrega: '+cc_entrega_json+'\r\nnombre_recibe: '+nombre_recibe_json+'\r\ncc_recibe: '+cc_recibe_json+'\r\nprograma: '+programa_json+'\r\nagente: '+agente_json+'\r\ngps: '+gps_json;			
+			const cuerpo = 'tipo: '+servicio_json+'\r\placa: '+registro_json+'\r\nfecha_sol: '+fecha_sol_json+'\r\nfecha_ent: '+fecha_ent_json+'\r\nsede: '+sede_json+'\r\nconductor: '+nombre_json+'\r\nauxiliar: '+documento_json+'\r\nruta: '+direccion_json+'\r\nrevisado: '+tipo_remision_json+'\r\ndetalleEquipos: '+detalleServicio_json+'\r\nobservaciones: '+observaciones_json;
+
+			
+			//enlace.download = document.getElementById('remision').value+'.json';			
+			
+			
+			var button = document.getElementById("confirmarBtn");
+			button.style.backgroundColor = "blue";			
+			
+			
+			
+			const asunto=ser+'_'+document.getElementById('registro').value+'_'+document.getElementById('nombre').value+'_'+fechaActual;
+			
+			const correo = `mailto:${destinatario}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`;			
+			window.open(correo);								
+		}
+	}
 	function obtenerFechaYHoraActual() {
 		const fecha = new Date();
 

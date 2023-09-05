@@ -1045,7 +1045,7 @@
 			var url = URL.createObjectURL(archivo);
 			var enlace = document.createElement('a');
 			enlace.href = url;
-			enlace.download = document.getElementById('remision').value+'.json';
+			//enlace.download = document.getElementById('remision').value+'.json';
 			enlace.download = 'RS'+document.getElementById('pedido').value+'_'+document.getElementById('documento').value+'_'+t_serv+'_'+document.getElementById('nombre').value+'_'+fechaActual+'.json';
 			enlace.click();
 			//const correo = `mailto:${destinatario}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`;			

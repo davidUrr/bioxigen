@@ -854,13 +854,13 @@
 			firma_recibe_json:firma_recibe_json_src			
 			};
 			
-			const contenido = JSON.stringify(objetoJson);		  
+			var contenido = JSON.stringify(objetoJson);		  
 			const destinatario="bioxigenservicio@gmail.com";
 			//const cuerpo = 'servicio: '+servicio_json+'\r\nregistro: '+registro_json+'\r\npedido: '+pedido_json+'\r\nfecha_sol: '+fecha_sol_json+'\r\nfecha_ent: '+fecha_ent_json+'\r\ntipo_cliente: '+tipo_cliente_json+'\r\nsede: '+sede_json+'\r\nnombre: '+documento_json+'\r\nentidad: '+entidad_json+'\r\ntelefono: '+telefono_json+'\r\ndireccion: '+direccion_json+'\r\nmunicipio: '+municipio_json+'\r\ntipo_remision: '+tipo_remision_json+'\r\nempresa: '+empresa_json+'\r\ndetalleServicio: '+detalleServicio_json+'\r\nobservaciones: '+observaciones_json+'\r\nefectivo: '+detalleConsumibles_json+'\r\nviajePerdido: '+viajePerdido_json+'\r\nnombre_entrega: '+nombre_entrega_json+'\r\ncc_entrega: '+cc_entrega_json+'\r\nnombre_recibe: '+nombre_recibe_json+'\r\ncc_recibe: '+cc_recibe_json+'\r\nprograma: '+programa_json+'\r\nagente: '+agente_json+'\r\ngps: '+gps_json;			
-			const cuerpo = 'servicio: '+servicio_json+'\r\nregistro: '+registro_json+'\r\npedido: '+pedido_json+'\r\nfecha_sol: '+fecha_sol_json+'\r\nfecha_ent: '+fecha_ent_json+'\r\ntipo_cliente: '+tipo_cliente_json+'\r\nsede: '+sede_json+'\r\nnombre: '+documento_json+'\r\nentidad: '+entidad_json+'\r\ntelefono: '+telefono_json+'\r\ndireccion: '+direccion_json+'\r\nbarrio: '+barrio_json+'\r\nmunicipio: '+municipio_json+'\r\ntipo_remision: '+tipo_remision_json+'\r\nempresa: '+empresa_json+'\r\ndetalleServicio: '+detalleServicio_json+'\r\nobservaciones: '+observaciones_json+'\r\nefectivo: '+efectivo_json+'\r\ndetalleConsumibles: '+detalleConsumibles_json+'\r\nviajePerdido: '+viajePerdido_json+'\r\nnombre_entrega: '+nombre_entrega_json+'\r\ncc_entrega: '+cc_entrega_json+'\r\nnombre_recibe: '+nombre_recibe_json+'\r\ncc_recibe: '+cc_recibe_json+'\r\nprograma: '+programa_json+'\r\nagente: '+agente_json+'\r\ngps: '+gps_json;
+			var cuerpo = 'servicio: '+servicio_json+'\r\nregistro: '+registro_json+'\r\npedido: '+pedido_json+'\r\nfecha_sol: '+fecha_sol_json+'\r\nfecha_ent: '+fecha_ent_json+'\r\ntipo_cliente: '+tipo_cliente_json+'\r\nsede: '+sede_json+'\r\nnombre: '+documento_json+'\r\nentidad: '+entidad_json+'\r\ntelefono: '+telefono_json+'\r\ndireccion: '+direccion_json+'\r\nbarrio: '+barrio_json+'\r\nmunicipio: '+municipio_json+'\r\ntipo_remision: '+tipo_remision_json+'\r\nempresa: '+empresa_json+'\r\ndetalleServicio: '+detalleServicio_json+'\r\nobservaciones: '+observaciones_json+'\r\nefectivo: '+efectivo_json+'\r\ndetalleConsumibles: '+detalleConsumibles_json+'\r\nviajePerdido: '+viajePerdido_json+'\r\nnombre_entrega: '+nombre_entrega_json+'\r\ncc_entrega: '+cc_entrega_json+'\r\nnombre_recibe: '+nombre_recibe_json+'\r\ncc_recibe: '+cc_recibe_json+'\r\nprograma: '+programa_json+'\r\nagente: '+agente_json+'\r\ngps: '+gps_json;
 
-			const asunto="VIAJE_PERDIDO RS"+document.getElementById('pedido').value+'_'+document.getElementById('documento').value+'_'+t_serv+'_'+document.getElementById('nombre').value+'_'+fechaActual;			
-			const correo = `mailto:${destinatario}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`;			
+			var asunto="VIAJE_PERDIDO RS"+document.getElementById('pedido').value+'_'+document.getElementById('documento').value+'_'+t_serv+'_'+document.getElementById('nombre').value+'_'+fechaActual;			
+			var correo = `mailto:${destinatario}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`;			
 			window.open(correo);
 			
 			var enlace = 'https://docs.google.com/forms/d/1N7TuN52ndOxUN_FjP5-mT1thiM5tETuUEOfb9M5tz0U/formResponse?entry.1589500006='+document.getElementById('servicio').value+'&entry.1085455186='+document.getElementById('registro').value+'&entry.69310568='+document.getElementById('pedido').value+'&entry.887692049='+document.getElementById('fecha_sol').value+'&entry.1047398527='+document.getElementById('fecha_ent').value+'&entry.1792196563='+document.getElementById('tipo_cliente').value+'&entry.1392038691='+document.getElementById('sede').value+'&entry.1288623008='+document.getElementById('nombre').value+'&entry.668705905='+document.getElementById('documento').value+'&entry.958321906='+document.getElementById('entidad').value+'&entry.1259438917='+document.getElementById('telefono').value+'&entry.1737036163='+document.getElementById('direccion').value+'&entry.148015017='+document.getElementById('barrio').value+'&entry.325895908='+document.getElementById('municipio').value+'&entry.1241644186='+document.getElementById('tipo_remision').value+'&entry.151803107='+document.getElementById('empresa').value+'&entry.1284687453='+detalleServicio_json+'&entry.2060496214='+document.getElementById('observaciones').value+'&entry.2123674024='+document.getElementById('efectivo').value+'&entry.1261341372='+detalleConsumibles_json+'&entry.938657998='+document.getElementById('viajePerdido').value+'&entry.1031897735='+document.getElementById('nombre_entrega').value+'&entry.9816530='+document.getElementById('cc_entrega').value+'&entry.1587660832='+document.getElementById('nombre_recibe').value+'&entry.2138962183='+document.getElementById('cc_recibe').value+'&entry.1689294285='+document.getElementById('programa').value+'&entry.306049323='+document.getElementById('agente').value+'&entry.1506124398='+document.getElementById('gps').value;
@@ -1015,10 +1015,10 @@
 			firma_recibe_json:firma_recibe_json_src			
 			};
 			
-			const contenido = JSON.stringify(objetoJson);		  
-			const destinatario="bioxigenservicio@gmail.com";
+			var contenido = JSON.stringify(objetoJson);		  
+			var destinatario="bioxigenservicio@gmail.com";
 			//const cuerpo = 'servicio: '+servicio_json+'\r\nregistro: '+registro_json+'\r\npedido: '+pedido_json+'\r\nfecha_sol: '+fecha_sol_json+'\r\nfecha_ent: '+fecha_ent_json+'\r\ntipo_cliente: '+tipo_cliente_json+'\r\nsede: '+sede_json+'\r\nnombre: '+documento_json+'\r\nentidad: '+entidad_json+'\r\ntelefono: '+telefono_json+'\r\ndireccion: '+direccion_json+'\r\nmunicipio: '+municipio_json+'\r\ntipo_remision: '+tipo_remision_json+'\r\nempresa: '+empresa_json+'\r\ndetalleServicio: '+detalleServicio_json+'\r\nobservaciones: '+observaciones_json+'\r\nefectivo: '+detalleConsumibles_json+'\r\nviajePerdido: '+viajePerdido_json+'\r\nnombre_entrega: '+nombre_entrega_json+'\r\ncc_entrega: '+cc_entrega_json+'\r\nnombre_recibe: '+nombre_recibe_json+'\r\ncc_recibe: '+cc_recibe_json+'\r\nprograma: '+programa_json+'\r\nagente: '+agente_json+'\r\ngps: '+gps_json;			
-			const cuerpo = 'servicio: '+servicio_json+'\r\nregistro: '+registro_json+'\r\npedido: '+pedido_json+'\r\nfecha_sol: '+fecha_sol_json+'\r\nfecha_ent: '+fecha_ent_json+'\r\ntipo_cliente: '+tipo_cliente_json+'\r\nsede: '+sede_json+'\r\nnombre: '+documento_json+'\r\nentidad: '+entidad_json+'\r\ntelefono: '+telefono_json+'\r\ndireccion: '+direccion_json+'\r\nbarrio: '+barrio_json+'\r\nmunicipio: '+municipio_json+'\r\ntipo_remision: '+tipo_remision_json+'\r\nempresa: '+empresa_json+'\r\ndetalleServicio: '+detalleServicio_json+'\r\nobservaciones: '+observaciones_json+'\r\nefectivo: '+efectivo_json+'\r\ndetalleConsumibles: '+detalleConsumibles_json+'\r\nviajePerdido: '+viajePerdido_json+'\r\nnombre_entrega: '+nombre_entrega_json+'\r\ncc_entrega: '+cc_entrega_json+'\r\nnombre_recibe: '+nombre_recibe_json+'\r\ncc_recibe: '+cc_recibe_json+'\r\nprograma: '+programa_json+'\r\nagente: '+agente_json+'\r\ngps: '+gps_json;			
+			var cuerpo = 'servicio: '+servicio_json+'\r\nregistro: '+registro_json+'\r\npedido: '+pedido_json+'\r\nfecha_sol: '+fecha_sol_json+'\r\nfecha_ent: '+fecha_ent_json+'\r\ntipo_cliente: '+tipo_cliente_json+'\r\nsede: '+sede_json+'\r\nnombre: '+documento_json+'\r\nentidad: '+entidad_json+'\r\ntelefono: '+telefono_json+'\r\ndireccion: '+direccion_json+'\r\nbarrio: '+barrio_json+'\r\nmunicipio: '+municipio_json+'\r\ntipo_remision: '+tipo_remision_json+'\r\nempresa: '+empresa_json+'\r\ndetalleServicio: '+detalleServicio_json+'\r\nobservaciones: '+observaciones_json+'\r\nefectivo: '+efectivo_json+'\r\ndetalleConsumibles: '+detalleConsumibles_json+'\r\nviajePerdido: '+viajePerdido_json+'\r\nnombre_entrega: '+nombre_entrega_json+'\r\ncc_entrega: '+cc_entrega_json+'\r\nnombre_recibe: '+nombre_recibe_json+'\r\ncc_recibe: '+cc_recibe_json+'\r\nprograma: '+programa_json+'\r\nagente: '+agente_json+'\r\ngps: '+gps_json;			
 			
 			
 			
@@ -1038,17 +1038,16 @@
 			ventanaEmergente.print();		
 			
 			
-			const asunto="RS"+document.getElementById('pedido').value+'_'+document.getElementById('documento').value+'_'+t_serv+'_'+document.getElementById('nombre').value+'_'+fechaActual;
-			globalThis.contenido;
-			globalThis.cuerpo;
-			globalThis.asunto;
+			var ser = document.getElementById('servicio').value;
+			var asunto="RS"+document.getElementById('pedido').value+'_'+document.getElementById('documento').value+'_'+t_serv+'_'+document.getElementById('nombre').value+'_'+fechaActual;			
+			
 			var archivo = new Blob([contenido], { type: 'application/json' });			
 			var url = URL.createObjectURL(archivo);
 			var enlace = document.createElement('a');
 			enlace.href = url;
 			//enlace.download = document.getElementById('remision').value+'.json';
-			enlace.download = 'RS'+document.getElementById('pedido').value+'_'+document.getElementById('documento').value+'_'+t_serv+'_'+document.getElementById('nombre').value+'_'+fechaActual+'.json';
-			enlace.click();
+			//enlace.download = 'RS'+document.getElementById('pedido').value+'_'+document.getElementById('documento').value+'_'+t_serv+'_'+document.getElementById('nombre').value+'_'+fechaActual+'.json';
+			//enlace.click();
 			//const correo = `mailto:${destinatario}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`;			
 			//window.open(correo);
 		}
@@ -1061,11 +1060,146 @@
 			} else {
 				console.log("La geolocalización no es soportada por este navegador.");
 			}		
-			alert("Confimar remision, OK");						
-			const destinatario="bioxigenservicio@gmail.com";
+			alert("Confimar remision, OK");	
+			const fechaActual = obtenerFechaYHoraActual();	
+			
+			
+			var ser = document.getElementById('servicio').value;
+			var t_serv = ser === "PRIMERA VEZ" ? "PRIM" : ser === "INTERCAMBIO" ? "INTE" : ser === "RECOLECCIÓN" ? "RECO" : ser === "RECURRENTE" ?"RECU" : "TRAN";
+			const contenidoStringBG = '';
+			const contenidoStringBM = '';
+			document.title = 'RS'+document.getElementById('pedido').value+'_'+document.getElementById('documento').value+'_'+t_serv+'_'+document.getElementById('nombre').value+'_'+fechaActual+'.pdf';
+			
+			var servicio_json = document.getElementById('servicio').value;
+			var registro_json = document.getElementById('registro').value;
+			var pedido_json = document.getElementById('pedido').value;
+			var fecha_sol_json = document.getElementById('fecha_sol').value;
+			var fecha_ent_json = document.getElementById('fecha_ent').value;
+			var tipo_cliente_json = document.getElementById('tipo_cliente').value;
+			var sede_json = document.getElementById('sede').value;
+			var nombre_json = document.getElementById('nombre').value;
+			var documento_json = document.getElementById('documento').value;
+			var entidad_json = document.getElementById('entidad').value;
+			var telefono_json = document.getElementById('telefono').value;
+			var direccion_json = document.getElementById('direccion').value;
+			var barrio_json = document.getElementById('barrio').value;
+			var municipio_json = document.getElementById('municipio').value;
+			var tipo_remision_json = document.getElementById('tipo_remision').value;
+			var empresa_json = document.getElementById('empresa').value;
+			var detalleServicio_json = document.getElementById('detalleServicio').value;
+			var observaciones_json = document.getElementById('observaciones').value;
+			var efectivo_json = document.getElementById('efectivo').value;
+			var detalleConsumibles_json = document.getElementById('detalleConsumibles').value;
+			var viajePerdido_json = document.getElementById('viajePerdido').value;
+			var nombre_entrega_json = document.getElementById('nombre_entrega').value;
+			var cc_entrega_json = document.getElementById('cc_entrega').value;
+			var nombre_recibe_json = document.getElementById('nombre_recibe').value;
+			var cc_recibe_json = document.getElementById('cc_recibe').value;
+			var programa_json = document.getElementById('programa').value;
+			var agente_json = document.getElementById('agente').value;
+			var gps_json = document.getElementById('gps').value;
+			var firma_entrega_json = document.getElementById('signatureImage');
+			var firma_recibe_json = document.getElementById('signatureImage1');
+			const firma_entrega_json_src = firma_entrega_json.src;
+			const firma_recibe_json_src = firma_recibe_json.src;		
+			
+					
+			//var tipo_servicio = ['&#9745;','&#9744;','&#9744;','&#9744;'] ;
+			var tipo_servicio = ser === "PRIMERA VEZ" ? ['&#9746;','&#9744;','&#9744;','&#9744;'] : ser === "INTERCAMBIO" ? ['&#9744;','&#9746;','&#9744;','&#9744;'] : ser === "RECOLECCIÓN" ? ['&#9744;','&#9744;','&#9746;','&#9744;'] : ser === "RECURRENTE" ?['&#9744;','&#9744;','&#9744;','&#9746;'] : ['&#9744;','&#9744;','&#9744;','&#9744;'];
+			var sedes = sede_json === "LA ESTRELLA"? ['&#9746;','&#9744;']:['&#9744;','&#9746;'];
+			//var detServicio = [['&#9746;','','CONCENTRADOR','BXR 1919','12123','4'],['&#9746;','','CONCENTRADOR','BXR 1919','12123','4'],['&#9746;','','CONCENTRADOR','BXR 1919','12123','4'],['&#9746;','','CONCENTRADOR','BXR 1919','12123','4'],['&#9746;','','CONCENTRADOR','BXR 1919','12123','4'],['&#9746;','','CONCENTRADOR','BXR 1919','12123','4'],['&#9746;','','CONCENTRADOR','BXR 1919','12123','4'],['&#9746;','','CONCENTRADOR','BXR 1919','12123','4'],['&#9746;','','CONCENTRADOR','BXR 1919','12123','4'],['&#9746;','','CONCENTRADOR','BXR 1919','12123','4'],['&#9746;','','CONCENTRADOR','BXR 1919','12123','4'],['&#9746;','','CONCENTRADOR','BXR 1919','12123','4'],['&#9746;','','CONCENTRADOR','BXR 1919','12123','4'],['&#9746;','','CONCENTRADOR','BXR 1919','12123','4'],['&#9746;','','CONCENTRADOR','BXR 1919','12123','4'],['&#9746;','','CONCENTRADOR','BXR 1919','12123','4'],['&#9746;','','CONCENTRADOR','BXR 1919','12123','4'],['&#9746;','','CONCENTRADOR','BXR 1919','12123','4'],['&#9746;','','CONCENTRADOR','BXR 1919','12123','4'],['&#9746;','','CONCENTRADOR','BXR 1919','12123','4']];
+			//var detConsumibles = ['1','2','3','Dispositivo'];
+			var detConsumibles = [document.getElementById('tubo').value,document.getElementById('canula').value,document.getElementById('humidificador').value,document.getElementById('otro_consumible').value];
+			//const entInputsConId = document.querySelectorAll('input[id^="ent_"]');
+			const entInputsConId = document.querySelectorAll('[id^="ent_"]');
+			const recInputsConId = document.querySelectorAll('[id^="rec_"]');
+			const entArrayFromNodeList = [];
+			const recArrayFromNodeList = [];
+			entInputsConId.forEach(node => entArrayFromNodeList.push(node.value));
+			recInputsConId.forEach(node => recArrayFromNodeList.push(node.value));
+			//var detServicio = transformarEstructura(arrayFromNodeList);
+			const entArrayTransformado = entArrayFromNodeList.map(dividirYCrearSubarrays);
+			const recArrayTransformado = recArrayFromNodeList.map(dividirYCrearSubarrays);
+			var entArrayResultado = [].concat.apply([], entArrayTransformado);
+			var recArrayResultado = [].concat.apply([], recArrayTransformado);			
+			var entArrayResultado = [].concat.apply([], entArrayResultado);			
+			var recArrayResultado = [].concat.apply([], recArrayResultado);
+			const elementosPorSubarray = 7;
+			if (entArrayResultado.length == 4){
+				var entrega_datos = [];
+				var entSubarrays = [];
+			}else{
+				var entrega_datos = agruparEnSubarrays(entArrayResultado, elementosPorSubarray,[]);
+				var entSubarrays = agruparEnSubarrays(entArrayResultado, elementosPorSubarray,['&#9746;','']);
+			}
+			if (recArrayResultado.length == 4){
+				var recoge_datos = [];
+				var recSubarrays = [];
+			}else{
+				var recoge_datos = agruparEnSubarrays(recArrayResultado, elementosPorSubarray,[]);
+				var recSubarrays = agruparEnSubarrays(recArrayResultado, elementosPorSubarray,['','&#9746;']);
+			}			
+			detalleServicio_json = {'ENTREGA':entrega_datos,'RECOGE':recoge_datos};			
+			var detServicio = [...entSubarrays,...recSubarrays];
+			var lote = document.getElementById('lote').value;
+			for (var i = 0; i < detServicio.length; i++) {
+				if(lote == '' && detServicio[i][2] =='CC') lote = detServicio[i][8]; 
+				if(detServicio[i][0] =='&#9746;' && detServicio[i][2] =='CC' && detServicio[i][8] =='') detServicio[i][8]=lote;
+				if(detServicio[i][2] =='CC') detServicio[i][5]=detServicio[i][8];
+				if(detServicio[i][2] =='') detServicio[i]=['','','','','','','','',''];
+				if(detServicio[i].length<9){
+					if(detServicio[i][2] =='CC') detServicio[i][4]='CILINDRO';
+					if(detServicio[i][2] =='C') detServicio[i][4]='CONCENTRADOR';
+					if(detServicio[i][2] =='R') detServicio[i][4]='REGULADOR';
+					if(detServicio[i][2] =='T') detServicio[i][4]='TERMO';
+					if(detServicio[i][2] =='O') detServicio[i][4]='OTRO';										
+				}
+			}
+			while(detServicio.length<20){
+				detServicio.push(['','','','','','','','','']);
+			}
+			//detalleServicio_json = detServicio;
+			detalleConsumibles_json = {'TUBO':detConsumibles[0],'CANULA':detConsumibles[1],'HUMIDIFCADOR':detConsumibles[2],'OTRO':detConsumibles[3]};
+			detalleServicio_json = JSON.stringify(detalleServicio_json);
+			detalleConsumibles_json = JSON.stringify(detalleConsumibles_json);
+			var objetoJson = {
+			servicio:servicio_json,
+			registro:registro_json,
+			pedido:pedido_json,
+			fecha_sol:fecha_sol_json,
+			fecha_ent:fecha_ent_json,
+			tipo_cliente:tipo_cliente_json,
+			sede:sede_json,
+			nombre:nombre_json,
+			documento:documento_json,
+			entidad:entidad_json,
+			telefono:telefono_json,
+			direccion:direccion_json,
+			barrio:barrio_json,
+			municipio:municipio_json,
+			tipo_remision:tipo_remision_json,
+			empresa:empresa_json,
+			detalleServicio:detalleServicio_json,
+			observaciones:observaciones_json,
+			efectivo:efectivo_json,
+			detalleConsumibles:detalleConsumibles_json,
+			viajePerdido:viajePerdido_json,
+			nombre_entrega:nombre_entrega_json,
+			cc_entrega:cc_entrega_json,
+			nombre_recibe:nombre_recibe_json,
+			cc_recibe:cc_recibe_json,
+			programa:programa_json,
+			agente:agente_json,
+			gps:gps_json,
+			firma_entrega_json:firma_entrega_json_src,
+			firma_recibe_json:firma_recibe_json_src			
+			};
+			
+			var contenido = JSON.stringify(objetoJson);		  
+			var destinatario="bioxigenservicio@gmail.com";
 			//const cuerpo = 'servicio: '+servicio_json+'\r\nregistro: '+registro_json+'\r\npedido: '+pedido_json+'\r\nfecha_sol: '+fecha_sol_json+'\r\nfecha_ent: '+fecha_ent_json+'\r\ntipo_cliente: '+tipo_cliente_json+'\r\nsede: '+sede_json+'\r\nnombre: '+documento_json+'\r\nentidad: '+entidad_json+'\r\ntelefono: '+telefono_json+'\r\ndireccion: '+direccion_json+'\r\nmunicipio: '+municipio_json+'\r\ntipo_remision: '+tipo_remision_json+'\r\nempresa: '+empresa_json+'\r\ndetalleServicio: '+detalleServicio_json+'\r\nobservaciones: '+observaciones_json+'\r\nefectivo: '+detalleConsumibles_json+'\r\nviajePerdido: '+viajePerdido_json+'\r\nnombre_entrega: '+nombre_entrega_json+'\r\ncc_entrega: '+cc_entrega_json+'\r\nnombre_recibe: '+nombre_recibe_json+'\r\ncc_recibe: '+cc_recibe_json+'\r\nprograma: '+programa_json+'\r\nagente: '+agente_json+'\r\ngps: '+gps_json;			
-			//const cuerpo = 'servicio: '+servicio_json+'\r\nregistro: '+registro_json+'\r\npedido: '+pedido_json+'\r\nfecha_sol: '+fecha_sol_json+'\r\nfecha_ent: '+fecha_ent_json+'\r\ntipo_cliente: '+tipo_cliente_json+'\r\nsede: '+sede_json+'\r\nnombre: '+documento_json+'\r\nentidad: '+entidad_json+'\r\ntelefono: '+telefono_json+'\r\ndireccion: '+direccion_json+'\r\nbarrio: '+barrio_json+'\r\nmunicipio: '+municipio_json+'\r\ntipo_remision: '+tipo_remision_json+'\r\nempresa: '+empresa_json+'\r\ndetalleServicio: '+detalleServicio_json+'\r\nobservaciones: '+observaciones_json+'\r\nefectivo: '+efectivo_json+'\r\ndetalleConsumibles: '+detalleConsumibles_json+'\r\nviajePerdido: '+viajePerdido_json+'\r\nnombre_entrega: '+nombre_entrega_json+'\r\ncc_entrega: '+cc_entrega_json+'\r\nnombre_recibe: '+nombre_recibe_json+'\r\ncc_recibe: '+cc_recibe_json+'\r\nprograma: '+programa_json+'\r\nagente: '+agente_json+'\r\ngps: '+gps_json;					
-			//const asunto="RS"+document.getElementById('pedido').value+'_'+document.getElementById('documento').value+'_'+t_serv+'_'+document.getElementById('nombre').value+'_'+fechaActual;			
+			var cuerpo = 'servicio: '+servicio_json+'\r\nregistro: '+registro_json+'\r\npedido: '+pedido_json+'\r\nfecha_sol: '+fecha_sol_json+'\r\nfecha_ent: '+fecha_ent_json+'\r\ntipo_cliente: '+tipo_cliente_json+'\r\nsede: '+sede_json+'\r\nnombre: '+documento_json+'\r\nentidad: '+entidad_json+'\r\ntelefono: '+telefono_json+'\r\ndireccion: '+direccion_json+'\r\nbarrio: '+barrio_json+'\r\nmunicipio: '+municipio_json+'\r\ntipo_remision: '+tipo_remision_json+'\r\nempresa: '+empresa_json+'\r\ndetalleServicio: '+detalleServicio_json+'\r\nobservaciones: '+observaciones_json+'\r\nefectivo: '+efectivo_json+'\r\ndetalleConsumibles: '+detalleConsumibles_json+'\r\nviajePerdido: '+viajePerdido_json+'\r\nnombre_entrega: '+nombre_entrega_json+'\r\ncc_entrega: '+cc_entrega_json+'\r\nnombre_recibe: '+nombre_recibe_json+'\r\ncc_recibe: '+cc_recibe_json+'\r\nprograma: '+programa_json+'\r\nagente: '+agente_json+'\r\ngps: '+gps_json;			
+			var asunto="RS"+document.getElementById('pedido').value+'_'+document.getElementById('documento').value+'_'+t_serv+'_'+document.getElementById('nombre').value+'_'+fechaActual;			
 			const correo = `mailto:${destinatario}?subject=${encodeURIComponent(asunto)}&body=${encodeURIComponent(cuerpo)}`;			
 			window.open(correo);
 		}
